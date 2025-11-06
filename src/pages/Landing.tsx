@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { BeamButtonPrimary, BeamButtonOutline } from "@/components/ui/pulse-buttons";
+import { FlowButton } from "@/components/ui/flow-button";
 import { Brain, Database, Zap } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { SplineScene } from "@/components/ui/spline-scene";
@@ -27,7 +28,7 @@ export default function Landing() {
             </p>
             <div className="flex gap-4 mt-8 flex-wrap">
               <Link to="/signup">
-                <BeamButtonPrimary label="Get Started" />
+                <FlowButton text="Get Started" />
               </Link>
               <Link to="/support">
                 <BeamButtonOutline label="Learn More" />
@@ -100,7 +101,7 @@ export default function Landing() {
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Link to="/signup">
-              <BeamButtonPrimary label="Get Started Free" />
+              <FlowButton text="Get Started Free" />
             </Link>
             <Link to="/support">
               <BeamButtonOutline label="View Documentation" />
