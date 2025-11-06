@@ -1,14 +1,49 @@
 import { Link } from "react-router-dom";
-import { ParticleHero } from "@/components/ui/particle-hero";
 import { BeamButtonPrimary, BeamButtonOutline } from "@/components/ui/pulse-buttons";
 import { Brain, Database, Zap } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { SplineScene } from "@/components/ui/spline-scene";
+import { Spotlight } from "@/components/ui/spotlight";
 
 export default function Landing() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <ParticleHero />
+      <section className="relative w-full h-[700px] bg-black/[0.96] overflow-hidden">
+        <Spotlight
+          className="-top-40 left-0 md:left-60 md:-top-20"
+          size={400}
+        />
+        
+        <div className="flex h-full max-w-7xl mx-auto">
+          {/* Left content */}
+          <div className="flex-1 p-8 md:p-12 relative z-10 flex flex-col justify-center">
+            <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+              Universal Memory
+            </h1>
+            <p className="mt-6 text-lg md:text-xl text-neutral-300 max-w-lg">
+              AI-powered Universal Platform for Designing, Memory and Intelligence. 
+              Your AI remembers everything across all platforms.
+            </p>
+            <div className="flex gap-4 mt-8 flex-wrap">
+              <Link to="/dashboard">
+                <BeamButtonPrimary label="Get Started" />
+              </Link>
+              <Link to="/support">
+                <BeamButtonOutline label="Learn More" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Right content - 3D Scene */}
+          <div className="flex-1 relative hidden lg:block">
+            <SplineScene 
+              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+              className="w-full h-full"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* How It Works */}
       <section className="py-20 px-6 bg-gradient-to-b from-background to-muted/20">
@@ -60,12 +95,15 @@ export default function Landing() {
           <h2 className="text-3xl font-bold mb-6 text-foreground">
             Ready to Supercharge Your AI?
           </h2>
+          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Join thousands of users who are already experiencing the power of universal memory across all their AI assistants.
+          </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Link to="/dashboard">
-              <BeamButtonPrimary label="Get Started" />
+              <BeamButtonPrimary label="Get Started Free" />
             </Link>
             <Link to="/support">
-              <BeamButtonOutline label="Learn More" />
+              <BeamButtonOutline label="View Documentation" />
             </Link>
           </div>
         </div>
