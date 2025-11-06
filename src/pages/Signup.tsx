@@ -35,7 +35,7 @@ export default function Signup() {
         title: "Success",
         description: "Account created successfully!",
       });
-      navigate("/dashboard");
+      navigate("/connect-bots");
       setLoading(false);
     }, 1000);
   };
