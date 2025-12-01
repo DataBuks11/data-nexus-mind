@@ -27,6 +27,21 @@ export default function Dashboard() {
           <p className="text-muted-foreground">Overview of your AI memory system</p>
         </div>
 
+        {/* Privacy Banner */}
+        <Card className="border-green-500/50 bg-green-500/5">
+          <CardContent className="pt-6">
+            <div className="flex items-start gap-4">
+              <div className="text-3xl">🔒</div>
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Local-First Privacy Active</h3>
+                <p className="text-sm text-muted-foreground">
+                  Your chat memories are stored securely in your browser's local storage (IndexedDB). Your data never touches our servers.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Stats */}
         <div className="grid md:grid-cols-3 gap-4">
           <Card>

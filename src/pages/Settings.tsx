@@ -17,9 +17,8 @@ export default function Settings() {
         </div>
 
         <Tabs defaultValue="profile" className="w-full">
-          <TabsList className="grid w-full grid-cols-4">
+          <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="profile">Profile</TabsTrigger>
-            <TabsTrigger value="apikeys">API Keys</TabsTrigger>
             <TabsTrigger value="security">Security</TabsTrigger>
             <TabsTrigger value="export">Export Data</TabsTrigger>
           </TabsList>
@@ -40,30 +39,6 @@ export default function Settings() {
                   <Input id="email" type="email" defaultValue="john@example.com" />
                 </div>
                 <Button>Save Changes</Button>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          <TabsContent value="apikeys" className="space-y-4">
-            <Card>
-              <CardHeader>
-                <CardTitle>API Keys</CardTitle>
-                <CardDescription>Manage your API access keys</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="p-4 border rounded-lg bg-muted/50">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-sm">sk_live_••••••••••••••••</span>
-                    <Button size="sm" variant="outline">
-                      <RefreshCw className="h-4 w-4 mr-2" />
-                      Regenerate
-                    </Button>
-                  </div>
-                  <p className="text-xs text-muted-foreground">Created on Jan 1, 2024</p>
-                </div>
-                <Button variant="outline" className="w-full">
-                  Create New API Key
-                </Button>
               </CardContent>
             </Card>
           </TabsContent>

@@ -1,4 +1,4 @@
-import { Home, Bot, Database, Terminal, Settings, BarChart3, HelpCircle } from "lucide-react";
+import { Home, Bot, Database, Terminal, Settings, HelpCircle } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import {
   Sidebar,
@@ -17,7 +17,6 @@ const items = [
   { title: "Connect Bots", url: "/connect-bots", icon: Bot },
   { title: "Memory Center", url: "/memory-center", icon: Database },
   { title: "Commands", url: "/commands", icon: Terminal },
-  { title: "Analytics", url: "/analytics", icon: BarChart3 },
   { title: "Settings", url: "/settings", icon: Settings },
   { title: "Support", url: "/support", icon: HelpCircle },
 ];

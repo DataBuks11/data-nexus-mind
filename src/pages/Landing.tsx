@@ -91,7 +91,7 @@ export default function Landing() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-muted/30">
+      <section className="py-20 px-6 bg-gradient-to-b from-muted/30 to-background">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6 text-foreground">
             Ready to Supercharge Your AI?
@@ -101,7 +101,9 @@ export default function Landing() {
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Link to="/signup">
-              <FlowButton text="Get Started Free" />
+              <div className="relative z-10">
+                <FlowButton text="Get Started Free" />
+              </div>
             </Link>
             <Link to="/support">
               <BeamButtonOutline label="View Documentation" />
