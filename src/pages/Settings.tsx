@@ -5,23 +5,84 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { RefreshCw, Download, Shield } from "lucide-react";
-import { useState } from "react";
-import { toast } from "@/components/ui/sonner";
+import { Download, LogOut } from "lucide-react";
+import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/hooks/useAuth";
+import { toast } from "sonner";
 
 export default function Settings() {
-  const [name, setName] = useState("John Doe");
-  const [email, setEmail] = useState("john@example.com");
+  const { user, signOut } = useAuth();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(true);
 
-  const handleSaveProfile = () => {
-    toast.success("✅ Profile updated successfully!");
+  useEffect(() => {
+    if (user) {
+      fetchProfile();
+    }
+  }, [user]);
+
+  const fetchProfile = async () => {
+    if (!user) return;
+
+    const { data, error } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", user.id)
+      .single();
+
+    if (error) {
+      console.error("Error fetching profile:", error);
+    } else if (data) {
+      setName(data.full_name || "");
+      setEmail(data.email || user.email || "");
+    } else {
+      setEmail(user.email || "");
+    }
+    setLoading(false);
   };
+
+  const handleSaveProfile = async () => {
+    if (!user) return;
+
+    const { error } = await supabase
+      .from("profiles")
+      .update({
+        full_name: name,
+        email: email,
+      })
+      .eq("id", user.id);
+
+    if (error) {
+      console.error("Error updating profile:", error);
+      toast.error("Failed to update profile");
+    } else {
+      toast.success("✅ Profile updated successfully!");
+    }
+  };
+
+  if (loading) {
+    return (
+      <DashboardLayout>
+        <div className="flex items-center justify-center h-64">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+        </div>
+      </DashboardLayout>
+    );
+  }
   return (
     <DashboardLayout>
       <div className="space-y-6">
-        <div>
-          <h2 className="text-3xl font-bold mb-2">Settings</h2>
-          <p className="text-muted-foreground">Manage your account and preferences</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-3xl font-bold mb-2">Settings</h2>
+            <p className="text-muted-foreground">Manage your account and preferences</p>
+          </div>
+          <Button variant="outline" onClick={signOut}>
+            <LogOut className="h-4 w-4 mr-2" />
+            Sign Out
+          </Button>
         </div>
 
         <Tabs defaultValue="profile" className="w-full">
