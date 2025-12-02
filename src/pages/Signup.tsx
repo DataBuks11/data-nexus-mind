@@ -46,7 +46,7 @@ export default function Signup() {
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 mb-4">
             <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#18CCFC] via-[#6344F5] to-[#AE48FF] flex items-center justify-center">
-              <Brain className="w-6 h-6 text-white" />
+              <span className="text-white font-bold text-lg">DB</span>
             </div>
           </Link>
           <h1 className="text-3xl font-bold">Create your account</h1>
