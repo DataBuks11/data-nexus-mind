@@ -27,7 +27,7 @@ export default function Landing() {
               Your AI remembers everything across all platforms.
             </p>
             <div className="flex gap-4 mt-8 flex-wrap">
-              <Link to="/dashboard">
+              <Link to="/auth">
                 <FlowButton text="Get Started" />
               </Link>
               <Link to="/support">

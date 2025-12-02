@@ -14,7 +14,135 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      connected_bots: {
+        Row: {
+          api_key: string | null
+          created_at: string
+          description: string | null
+          icon: string | null
+          id: string
+          name: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          api_key?: string | null
+          created_at?: string
+          description?: string | null
+          icon?: string | null
+          id?: string
+          name: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          api_key?: string | null
+          created_at?: string
+          description?: string | null
+          icon?: string | null
+          id?: string
+          name?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      custom_commands: {
+        Row: {
+          created_at: string
+          function: string
+          id: string
+          name: string
+          trigger: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          function: string
+          id?: string
+          name: string
+          trigger: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          function?: string
+          id?: string
+          name?: string
+          trigger?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      memories: {
+        Row: {
+          bot: string
+          content: string | null
+          created_at: string
+          id: string
+          size: string | null
+          synced: boolean
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          bot: string
+          content?: string | null
+          created_at?: string
+          id?: string
+          size?: string | null
+          synced?: boolean
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          bot?: string
+          content?: string | null
+          created_at?: string
+          id?: string
+          size?: string | null
+          synced?: boolean
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          email: string | null
+          full_name: string | null
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id: string
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
