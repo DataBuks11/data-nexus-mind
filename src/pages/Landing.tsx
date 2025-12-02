@@ -27,7 +27,7 @@ export default function Landing() {
               Your AI remembers everything across all platforms.
             </p>
             <div className="flex gap-4 mt-8 flex-wrap">
-              <Link to="/signup">
+              <Link to="/dashboard">
                 <FlowButton text="Get Started" />
               </Link>
               <Link to="/support">
@@ -100,7 +100,7 @@ export default function Landing() {
             Join thousands of users who are already experiencing the power of universal memory across all their AI assistants.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/signup">
+            <Link to="/dashboard">
               <div className="relative z-10">
                 <FlowButton text="Get Started Free" />
               </div>
