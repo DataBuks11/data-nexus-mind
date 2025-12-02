@@ -6,8 +6,16 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RefreshCw, Download, Shield } from "lucide-react";
+import { useState } from "react";
+import { toast } from "@/components/ui/sonner";
 
 export default function Settings() {
+  const [name, setName] = useState("John Doe");
+  const [email, setEmail] = useState("john@example.com");
+
+  const handleSaveProfile = () => {
+    toast.success("✅ Profile updated successfully!");
+  };
   return (
     <DashboardLayout>
       <div className="space-y-6">
@@ -32,13 +40,22 @@ export default function Settings() {
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="name">Name</Label>
-                  <Input id="name" defaultValue="John Doe" />
+                  <Input 
+                    id="name" 
+                    value={name} 
+                    onChange={(e) => setName(e.target.value)}
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" defaultValue="john@example.com" />
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </div>
-                <Button>Save Changes</Button>
+                <Button onClick={handleSaveProfile}>Save Changes</Button>
               </CardContent>
             </Card>
           </TabsContent>

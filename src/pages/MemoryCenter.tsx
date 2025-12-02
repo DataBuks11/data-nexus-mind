@@ -5,15 +5,23 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Search, Edit, Trash2, Download } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { toast } from "@/components/ui/sonner";
 
 export default function MemoryCenter() {
-  const memories = [
-    { id: 1, title: "Project Planning Discussion", bot: "ChatGPT", date: "2024-01-15", size: "2.3 MB", synced: true },
-    { id: 2, title: "Code Review Notes", bot: "Claude", date: "2024-01-14", size: "1.1 MB", synced: true },
-    { id: 3, title: "Data Analysis Query", bot: "Gemini", date: "2024-01-13", size: "3.5 MB", synced: false },
-    { id: 4, title: "API Documentation", bot: "ChatGPT", date: "2024-01-12", size: "0.8 MB", synced: true },
-    { id: 5, title: "Design Feedback", bot: "Claude", date: "2024-01-11", size: "1.9 MB", synced: true },
-  ];
+  const [memories, setMemories] = useState([
+    { id: 1, title: "Project Alpha Specs", bot: "ChatGPT", date: "2024-01-15", size: "2.3 MB", synced: true },
+    { id: 2, title: "Marketing Copy Draft", bot: "Claude", date: "2024-01-14", size: "1.1 MB", synced: true },
+    { id: 3, title: "Q4 Budget Analysis", bot: "Gemini", date: "2024-01-13", size: "3.5 MB", synced: false },
+    { id: 4, title: "API Integration Guide", bot: "ChatGPT", date: "2024-01-12", size: "0.8 MB", synced: true },
+    { id: 5, title: "Design System Updates", bot: "Claude", date: "2024-01-11", size: "1.9 MB", synced: true },
+    { id: 6, title: "Customer Feedback Summary", bot: "Grok", date: "2024-01-10", size: "1.4 MB", synced: true },
+  ]);
+
+  const handleDelete = (id: number) => {
+    setMemories(memories.filter(memory => memory.id !== id));
+    toast.success("🗑️ Memory deleted");
+  };
 
   return (
     <DashboardLayout>
@@ -83,7 +91,7 @@ export default function MemoryCenter() {
                     <Button size="icon" variant="ghost">
                       <Download className="h-4 w-4" />
                     </Button>
-                    <Button size="icon" variant="ghost">
+                    <Button size="icon" variant="ghost" onClick={() => handleDelete(memory.id)}>
                       <Trash2 className="h-4 w-4 text-destructive" />
                     </Button>
                   </div>
