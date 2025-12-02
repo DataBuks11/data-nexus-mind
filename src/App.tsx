@@ -4,8 +4,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import ConnectBots from "./pages/ConnectBots";
 import MemoryCenter from "./pages/MemoryCenter";
@@ -26,8 +24,6 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/connect-bots" element={<ConnectBots />} />
           <Route path="/memory-center" element={<MemoryCenter />} />
