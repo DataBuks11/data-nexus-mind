@@ -10,7 +10,7 @@ export default function ConnectBots() {
     { name: "ChatGPT", description: "OpenAI's conversational AI", ready: true },
     { name: "Gemini", description: "Google's multimodal AI", ready: true },
     { name: "Claude", description: "Anthropic's AI assistant", ready: false },
-    { name: "Mistral", description: "Open-source AI model", ready: false },
+    { name: "Grok", description: "xAI's conversational AI", ready: false },
   ];
 
   return (
