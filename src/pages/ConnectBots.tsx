@@ -1,4 +1,5 @@
 import { DashboardLayout } from "@/components/DashboardLayout";
+import { toast } from "@/components/ui/sonner";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +13,10 @@ export default function ConnectBots() {
     { name: "Claude", description: "Anthropic's AI assistant", ready: false },
     { name: "Grok", description: "xAI's conversational AI", ready: false },
   ];
+
+  const handleExtensionClick = () => {
+    toast.info("ℹ️ Redirecting to Chrome Web Store... (Demo Info)");
+  };
 
   return (
     <DashboardLayout>
@@ -27,7 +32,7 @@ export default function ConnectBots() {
           <AlertTitle className="text-lg font-semibold">Browser Extension Required</AlertTitle>
           <AlertDescription className="mt-2">
             <p className="mb-4">Install the DataBuks Chrome Extension to automatically connect your AI chatbots and sync memories locally.</p>
-            <Button size="lg" className="w-full md:w-auto">
+            <Button size="lg" className="w-full md:w-auto" onClick={handleExtensionClick}>
               Install DataBuks Chrome Extension to Start
             </Button>
           </AlertDescription>
